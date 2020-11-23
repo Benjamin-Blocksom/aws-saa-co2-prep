@@ -1,0 +1,14 @@
+aws kms encrypt \
+    #replace foo_alias with KMS key alias
+    --key-id alias/foo_alias \
+   
+    #replace foo_text_to_encrypt with file name
+    --plaintext fileb://foo_text_to_encrypt.txt \
+    --output text \
+    --query CiphertextBlob \
+
+    #replace iam_role with role found at ~/.aws/config
+    --profile iam_role | base64 \
+
+    #replace decryptedtext.enc with chosen file name
+    --decode > decryptedtext.enc 
