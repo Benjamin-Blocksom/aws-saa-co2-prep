@@ -1,0 +1,5 @@
+aws kms decrypt \
+    --ciphertext-blob fileb://filename.enc \
+    --output text \
+    --profile foo-role \
+    --query Plaintext | base64 --decode > decryptedfilename.txt
